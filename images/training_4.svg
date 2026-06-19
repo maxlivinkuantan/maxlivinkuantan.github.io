@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="Training projector">
+  <rect width="900" height="900" fill="#f5f1e8"/>
+  <rect x="130" y="110" width="640" height="370" rx="12" fill="#222"/>
+  <rect x="175" y="155" width="550" height="280" fill="#fffaf1"/>
+  <line x1="450" y1="40" x2="450" y2="110" stroke="#444" stroke-width="10"/>
+  <rect x="360" y="35" width="180" height="50" rx="10" fill="#555"/>
+  <circle cx="450" cy="295" r="80" fill="#c8102e"/>
+  <text x="402" y="315" fill="#fff" font-family="Arial" font-size="44" font-weight="800">A9</text>
+  <polygon points="0,680 900,620 900,900 0,900" fill="#4d453e"/>
+</svg>

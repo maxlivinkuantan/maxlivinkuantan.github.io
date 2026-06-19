@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-label="Reception lounge">
+  <rect width="900" height="900" fill="#efe9dd"/>
+  <rect x="80" y="135" width="740" height="420" rx="20" fill="#fffaf0" stroke="#d8cfbf" stroke-width="7"/>
+  <rect x="115" y="580" width="670" height="150" rx="34" fill="#bdb2a4"/>
+  <rect x="205" y="525" width="490" height="110" rx="30" fill="#ded5c9"/>
+  <rect x="290" y="730" width="320" height="80" rx="12" fill="#1c1b19"/>
+  <circle cx="450" cy="330" r="100" fill="#c8102e"/>
+  <text x="382" y="350" fill="#fff" font-family="Arial" font-size="50" font-weight="800">A9</text>
+</svg>

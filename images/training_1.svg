@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Training hall">
+  <rect width="1200" height="900" fill="#f7f5ef"/>
+  <rect x="270" y="105" width="660" height="300" rx="10" fill="#222"/>
+  <rect x="310" y="145" width="580" height="220" fill="#fbf8ef"/>
+  <rect x="90" y="595" width="260" height="110" rx="10" fill="#1c1b19"/>
+  <rect x="470" y="595" width="260" height="110" rx="10" fill="#1c1b19"/>
+  <rect x="850" y="595" width="260" height="110" rx="10" fill="#1c1b19"/>
+  <rect x="145" y="535" width="150" height="70" rx="10" fill="#d3c9bb"/>
+  <rect x="525" y="535" width="150" height="70" rx="10" fill="#d3c9bb"/>
+  <rect x="905" y="535" width="150" height="70" rx="10" fill="#d3c9bb"/>
+  <polygon points="0,720 1200,650 1200,900 0,900" fill="#5b5148"/>
+  <circle cx="600" cy="255" r="70" fill="#c8102e"/>
+  <text x="555" y="275" fill="#fff" font-family="Arial" font-size="42" font-weight="800">MAX</text>
+</svg>

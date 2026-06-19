@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" role="img" aria-label="MAXLIVIN storefront">
+  <rect width="1000" height="1200" fill="#e8e2d7"/>
+  <rect x="110" y="140" width="780" height="800" rx="10" fill="#f9f6ee" stroke="#cfc5b4" stroke-width="12"/>
+  <rect x="170" y="235" width="660" height="170" rx="10" fill="#c8102e"/>
+  <text x="245" y="345" fill="#fff" font-family="Arial" font-size="82" font-weight="800">MAXLIVIN'</text>
+  <rect x="185" y="470" width="280" height="410" fill="#dce7ec" stroke="#2b2b2b" stroke-width="10"/>
+  <rect x="535" y="470" width="280" height="410" fill="#dce7ec" stroke="#2b2b2b" stroke-width="10"/>
+  <line x1="325" y1="470" x2="325" y2="880" stroke="#2b2b2b" stroke-width="7"/>
+  <line x1="675" y1="470" x2="675" y2="880" stroke="#2b2b2b" stroke-width="7"/>
+  <polygon points="0,950 1000,900 1000,1200 0,1200" fill="#514941"/>
+  <text x="300" y="1030" fill="#fff" fill-opacity=".84" font-family="Arial" font-size="34">A9 Jalan Haji Ahmad 9</text>
+</svg>
