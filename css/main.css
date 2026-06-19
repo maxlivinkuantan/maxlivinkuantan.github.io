@@ -30,6 +30,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,11 +39,21 @@ body {
   color: var(--color-ink);
   font-family: Inter, "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img,
 svg,
 iframe {
+  max-width: 100%;
+}
+
+body,
+main,
+section,
+header,
+footer,
+.container {
   max-width: 100%;
 }
 
@@ -1031,8 +1042,34 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  body {
+    width: 100%;
+  }
+
   .container {
     width: min(100% - 24px, var(--container));
+  }
+
+  .nav-logo img,
+  .footer-brand img {
+    max-width: min(150px, 46vw);
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  button,
+  address,
+  td,
+  .btn,
+  .lead,
+  .hero-sub,
+  .map-note,
+  .faq-question {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .hero {
@@ -1095,6 +1132,40 @@ textarea {
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .venue-card-foot,
+  .venue-detail-actions,
+  .hero-actions,
+  .map-actions,
+  .flex-wrap-gap {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .price-table {
+    table-layout: fixed;
+  }
+
+  .price-table td {
+    width: 50%;
+    overflow-wrap: anywhere;
+  }
+
+  .location-hours {
+    grid-template-columns: 1fr;
+  }
+
+  .map-card iframe,
+  .location-map iframe {
+    width: 100%;
   }
 
   .sticky-cta {
