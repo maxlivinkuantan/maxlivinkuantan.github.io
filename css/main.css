@@ -184,6 +184,29 @@ textarea {
   border-color: var(--color-green);
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.lang-switch:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}
+
+.mobile-lang-link {
+  display: none;
+}
+
 .btn-lg {
   min-height: 52px;
   padding-inline: 1.35rem;
@@ -1019,6 +1042,12 @@ textarea {
 
   .nav-links.is-open a {
     padding: var(--sp-3);
+  }
+
+  .nav-links.is-open .mobile-lang-link {
+    display: block;
+    color: var(--color-brand);
+    font-weight: 900;
   }
 
   .trust-strip .container,
