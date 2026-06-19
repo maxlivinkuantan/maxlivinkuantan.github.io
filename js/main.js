@@ -72,10 +72,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingForm = document.querySelector("#bookingForm");
   const formSuccess = document.querySelector("#formSuccess");
   if (bookingForm) {
-    bookingForm.addEventListener("submit", (event) => {
+    bookingForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (formSuccess) formSuccess.classList.add("is-visible");
-      bookingForm.reset();
+      const action = bookingForm.getAttribute("action");
+      const isConfigured = action && !action.includes("YOUR_FORM_ID");
+
+      if (!isConfigured) {
+        if (formSuccess) {
+          formSuccess.classList.add("is-visible");
+          formSuccess.querySelector("span").textContent =
+            "This form is not connected yet. Please contact us by WhatsApp, or set up Formspree to receive email enquiries.";
+        }
+        return;
+      }
+
+      const submitButton = bookingForm.querySelector('button[type="submit"]');
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: new FormData(bookingForm),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) throw new Error("Form submission failed");
+
+        if (formSuccess) {
+          formSuccess.classList.add("is-visible");
+          formSuccess.querySelector("span").textContent =
+            formSuccess.dataset.successMessage || "Your enquiry has been received. We will contact you soon.";
+        }
+        bookingForm.reset();
+      } catch (error) {
+        if (formSuccess) {
+          formSuccess.classList.add("is-visible");
+          formSuccess.querySelector("span").textContent =
+            "Sorry, the form could not be sent. Please contact us by WhatsApp.";
+        }
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
     });
   }
 });

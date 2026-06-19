@@ -1073,6 +1073,7 @@ textarea {
 @media (max-width: 720px) {
   body {
     width: 100%;
+    padding-bottom: 76px;
   }
 
   .container {
@@ -1102,11 +1103,39 @@ textarea {
   }
 
   .hero {
-    min-height: 760px;
+    min-height: 640px;
   }
 
   .hero-title {
-    font-size: clamp(3rem, 18vw, 5.4rem);
+    font-size: clamp(2.85rem, 17vw, 5rem);
+    margin-bottom: var(--sp-3);
+  }
+
+  .hero-content {
+    padding-block: var(--sp-7);
+  }
+
+  .hero-sub {
+    margin-bottom: var(--sp-5);
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    gap: var(--sp-3);
+    margin-top: var(--sp-5);
+  }
+
+  .hero-stats > div {
+    width: 100%;
+    min-width: 0;
+    padding: var(--sp-3);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius);
+    background: rgba(28, 27, 25, 0.22);
+  }
+
+  .hero-stat-num {
+    font-size: 1.35rem;
   }
 
   .hero-scroll-cue,
@@ -1154,7 +1183,37 @@ textarea {
   }
 
   .section {
-    padding-block: var(--sp-7);
+    padding-block: var(--sp-6);
+  }
+
+  .section-head {
+    margin-bottom: var(--sp-5);
+  }
+
+  .venue-card-body,
+  .support-card,
+  .booking-card {
+    padding: var(--sp-4);
+  }
+
+  .venue-detail {
+    gap: var(--sp-5);
+  }
+
+  .venue-detail-info h3 {
+    font-size: 2rem;
+  }
+
+  .amenity-chip {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius);
+  }
+
+  .inquiry-section,
+  .contact-tile,
+  .inquiry-contact-item {
+    max-width: 100%;
   }
 
   .venue-card-bottom,
@@ -1198,7 +1257,9 @@ textarea {
   }
 
   .sticky-cta {
-    position: sticky;
+    position: fixed;
+    left: 0;
+    right: 0;
     bottom: 0;
     z-index: 45;
     display: grid;

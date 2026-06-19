@@ -381,7 +381,8 @@
       </div>
 
       <div class="inquiry-form-wrap">
-        <form id="bookingForm">
+        <form id="bookingForm" action="https://formspree.io/f/xrevnkbj" method="POST">
+          <input type="hidden" name="_subject" value="MAXLIVIN 场地咨询">
           <div class="form-row">
             <div class="form-field">
               <label for="f-name">姓名</label>
@@ -443,7 +444,7 @@
           </div>
           <p class="form-note">提交后我们将通过电话或邮箱与您确认场地可用时段及报价。</p>
 
-          <div class="form-success" id="formSuccess">
+          <div class="form-success" id="formSuccess" data-success-message="咨询已收到，我们会尽快与您联系确认详情。">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>咨询已收到，我们会尽快与您联系确认详情。</span>
           </div>
