@@ -9,8 +9,13 @@
   --color-green: #128c4a;
   --color-gold: #b58a32;
   --color-blue: #244a7c;
-  --shadow: 0 18px 50px rgba(28, 27, 25, 0.12);
-  --radius: 8px;
+  
+  /* 优化：更柔和的阴影与现代化的圆角 */
+  --shadow: 0 12px 30px rgba(28, 27, 25, 0.05);
+  --shadow-hover: 0 20px 50px rgba(28, 27, 25, 0.12);
+  --radius: 12px; 
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
   --container: 1180px;
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
@@ -65,6 +70,7 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 button,
@@ -79,13 +85,16 @@ textarea {
   margin-inline: auto;
 }
 
+/* 优化：高级毛玻璃导航栏 */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 250, 247, 0.92);
-  border-bottom: 1px solid rgba(222, 218, 207, 0.75);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .nav-wrap {
@@ -136,8 +145,10 @@ textarea {
   height: 2px;
   margin: 4px auto;
   background: var(--color-ink);
+  transition: all 0.3s ease;
 }
 
+/* 优化：按钮交互与质感 */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -149,22 +160,20 @@ textarea {
   font-weight: 800;
   line-height: 1.1;
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
+  transition: var(--transition-smooth);
 }
 
 .btn-primary {
   color: #fff;
-  background: var(--color-brand);
-  border-color: var(--color-brand);
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.25);
 }
 
 .btn-primary:hover {
-  background: var(--color-brand-dark);
-  border-color: var(--color-brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4);
+  filter: brightness(1.1);
 }
 
 .btn-secondary {
@@ -174,14 +183,23 @@ textarea {
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-brand);
-  color: var(--color-brand);
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: #fff;
 }
 
 .btn-whatsapp {
   color: #fff;
-  background: var(--color-green);
-  border-color: var(--color-green);
+  background: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #20BA56;
+  border-color: #20BA56;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
 .lang-switch {
@@ -196,6 +214,7 @@ textarea {
   color: var(--color-ink);
   font-size: 0.9rem;
   font-weight: 900;
+  transition: var(--transition-smooth);
 }
 
 .lang-switch:hover {
@@ -238,7 +257,7 @@ textarea {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(28, 27, 25, 0.88), rgba(28, 27, 25, 0.42) 52%, rgba(28, 27, 25, 0.18));
+  background: linear-gradient(90deg, rgba(28, 27, 25, 0.92), rgba(28, 27, 25, 0.5) 52%, rgba(28, 27, 25, 0.2));
 }
 
 .hero-content {
@@ -339,7 +358,7 @@ textarea {
 }
 
 .trust-strip {
-  border-block: 1px solid var(--color-line);
+  border-block: 1px solid rgba(0,0,0,0.05);
   background: #fff;
 }
 
@@ -393,15 +412,18 @@ h2 {
   gap: var(--sp-5);
 }
 
+/* 优化：卡片悬浮动效 */
 .venue-card,
 .booking-card,
 .contact-panel,
 .faq-item,
 .about-pillar,
-.process-card {
-  border: 1px solid var(--color-line);
+.process-card,
+.support-card {
+  border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: var(--radius);
   background: #fff;
+  transition: var(--transition-smooth);
 }
 
 .venue-card {
@@ -409,9 +431,20 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.support-card {
+  box-shadow: var(--shadow);
+}
+
+.venue-card:hover,
+.support-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
 .venue-card-img {
   position: relative;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
 }
 
 .venue-card-img img,
@@ -419,6 +452,11 @@ h2 {
 .gallery img {
   width: 100%;
   height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.venue-card:hover .venue-card-img img {
+  transform: scale(1.05);
 }
 
 .venue-card-tag {
@@ -427,9 +465,10 @@ h2 {
   top: var(--sp-4);
   padding: 0.35rem 0.65rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--color-brand);
   font-weight: 900;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .venue-card-body {
@@ -459,9 +498,10 @@ h2 {
 .venue-meta-item,
 .spec-item {
   padding: var(--sp-4);
-  border: 1px solid var(--color-line);
+  border: 1px solid rgba(0,0,0,0.04);
   border-radius: var(--radius);
   background: var(--color-paper);
+  transition: var(--transition-smooth);
 }
 
 .venue-meta-num,
@@ -499,6 +539,22 @@ h2 {
 .btn-ghost {
   color: var(--color-brand);
   font-weight: 900;
+  position: relative;
+}
+
+.btn-ghost::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-brand);
+  transition: width 0.3s ease;
+}
+
+.btn-ghost:hover::after {
+  width: 100%;
 }
 
 .venue-detail-grid,
@@ -655,6 +711,19 @@ h2 {
   gap: var(--sp-4);
 }
 
+.process-step {
+  padding: var(--sp-5);
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: var(--transition-smooth);
+}
+
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
 .support-section {
   background: #fff;
 }
@@ -670,10 +739,9 @@ h2 {
   gap: var(--sp-3);
   align-content: start;
   padding: var(--sp-6);
-  border: 1px solid var(--color-line);
+  border: 1px solid rgba(0,0,0,0.04);
   border-radius: var(--radius);
   background: var(--color-paper);
-  box-shadow: var(--shadow);
 }
 
 .support-icon {
@@ -681,9 +749,10 @@ h2 {
   place-items: center;
   width: 54px;
   height: 54px;
-  border-radius: var(--radius);
-  background: var(--color-brand);
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
   color: #fff;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
 }
 
 .support-card h3 {
@@ -719,9 +788,30 @@ h2 {
   font-weight: 900;
 }
 
+/* 优化：表单区域样式提亮与流线型设计 */
 #inquiry {
   background: var(--color-ink);
   color: #fff;
+  position: relative;
+}
+
+.inquiry-section {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.inquiry-aside {
+  padding: var(--sp-6);
+  background: linear-gradient(135deg, var(--color-ink) 0%, #000 100%);
+}
+
+.inquiry-form-wrap {
+  padding: var(--sp-6);
+  background: #fff;
+  color: var(--color-ink);
 }
 
 #inquiry .lead,
@@ -731,39 +821,30 @@ h2 {
   color: rgba(255, 255, 255, 0.72);
 }
 
+.inquiry-form-wrap .form-note {
+  color: var(--color-ink-soft);
+}
+
 .contact-list {
   display: grid;
   gap: var(--sp-3);
   margin-top: var(--sp-5);
 }
 
-.contact-tile {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: var(--sp-3);
+.inquiry-contact-item {
+  display: flex;
   align-items: center;
-  padding: var(--sp-4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
 }
 
-.contact-icon {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius);
-  background: var(--color-brand);
+.inquiry-contact-item svg {
+  color: var(--color-brand);
 }
 
 .ct-value {
   color: #fff;
   font-weight: 900;
-}
-
-.booking-card {
-  padding: var(--sp-5);
-  color: var(--color-ink);
 }
 
 .form-row {
@@ -787,6 +868,7 @@ label {
   font-weight: 500;
 }
 
+/* 优化：输入框激活状态 */
 input,
 select,
 textarea {
@@ -796,6 +878,15 @@ textarea {
   background: #fff;
   color: var(--color-ink);
   padding: 0.8rem 0.9rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.1);
+  outline: none;
 }
 
 textarea {
@@ -824,11 +915,13 @@ textarea {
   box-shadow: var(--shadow);
 }
 
-.map-card iframe {
+.location-map iframe {
   display: block;
   width: 100%;
   min-height: 440px;
   border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .location-hours,
@@ -841,9 +934,10 @@ textarea {
 .location-hours {
   grid-template-columns: 1fr auto;
   padding: var(--sp-4);
-  border: 1px solid var(--color-line);
+  border: 1px solid rgba(0,0,0,0.04);
   border-radius: var(--radius);
   background: #fff;
+  box-shadow: var(--shadow);
 }
 
 .day {
@@ -895,6 +989,7 @@ textarea {
   inset: 8px 0 auto;
   height: 2px;
   background: var(--color-brand);
+  transition: transform 0.3s ease;
 }
 
 .faq-question .icon::after {
@@ -934,6 +1029,15 @@ textarea {
 
 .about-pillar {
   padding: var(--sp-4);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: var(--transition-smooth);
+}
+
+.about-pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
 .text-center {
@@ -990,6 +1094,13 @@ textarea {
   display: none;
 }
 
+/* 优化：WhatsApp 浮动呼吸灯效果 */
+@keyframes pulse-whatsapp {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
 .float-whatsapp {
   position: fixed;
   right: 22px;
@@ -1000,14 +1111,21 @@ textarea {
   width: 58px;
   height: 58px;
   border-radius: 999px;
-  background: var(--color-green);
-  box-shadow: 0 12px 34px rgba(18, 140, 74, 0.32);
+  background: #25D366;
+  animation: pulse-whatsapp 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.float-whatsapp:hover {
+  transform: scale(1.1);
+  animation: none;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .reveal.is-visible {
@@ -1034,10 +1152,12 @@ textarea {
     display: grid;
     gap: 0;
     padding: var(--sp-3);
-    border: 1px solid var(--color-line);
+    border: 1px solid rgba(0,0,0,0.05);
     border-radius: var(--radius);
-    background: #fff;
-    box-shadow: var(--shadow);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-hover);
   }
 
   .nav-links.is-open a {
@@ -1059,9 +1179,12 @@ textarea {
 
   .venue-detail-grid,
   .venue-detail,
-  .inquiry-grid,
   .location-grid,
   .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .inquiry-section {
     grid-template-columns: 1fr;
   }
 
@@ -1085,19 +1208,7 @@ textarea {
     max-width: min(150px, 46vw);
   }
 
-  h1,
-  h2,
-  h3,
-  p,
-  a,
-  button,
-  address,
-  td,
-  .btn,
-  .lead,
-  .hero-sub,
-  .map-note,
-  .faq-question {
+  h1, h2, h3, p, a, button, address, td, .btn, .lead, .hero-sub, .map-note, .faq-question {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
@@ -1132,6 +1243,7 @@ textarea {
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: var(--radius);
     background: rgba(28, 27, 25, 0.22);
+    backdrop-filter: blur(8px);
   }
 
   .hero-stat-num {
@@ -1216,6 +1328,10 @@ textarea {
     max-width: 100%;
   }
 
+  .inquiry-aside, .inquiry-form-wrap {
+    padding: var(--sp-4);
+  }
+
   .venue-card-bottom,
   .footer-bottom {
     align-items: flex-start;
@@ -1266,8 +1382,10 @@ textarea {
     grid-template-columns: 1fr 1fr;
     gap: var(--sp-2);
     padding: var(--sp-3);
-    background: rgba(250, 250, 247, 0.94);
-    border-top: 1px solid var(--color-line);
-    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
   }
 }
